@@ -27,7 +27,7 @@ Using Delta Live Tables provides reliable, declarative pipeline management with 
 
 Pipeline
 ---------------
-[Pipeline](scr/Process_Energy_Data.py) is divided in three stages/layers Bronze, Silver and Gold.
+[Pipeline](https://github.com/jugnu1234/ColibriDigital/blob/main/src/Process_Energy_Data.py) is divided in three stages/layers Bronze, Silver and Gold.
 
 Bronze layer represent the raw source data which is processed incrementally.
 
