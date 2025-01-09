@@ -12,7 +12,7 @@ schema = StructType([
     StructField("power_output", DoubleType(), True)
 ])
 
-# Bronze table - Raw data ingestion
+# Bronze table - Raw data ingestion, this is loading only incremental/new data.
 @dlt.table(
     name="bronze_data",
     comment="Raw wind turbine data from CSV files",
@@ -34,17 +34,18 @@ def get_bronze_data():
     name="silver_data",
     comment="Cleaned wind turbine data with missing values handled and outliers removed"
 )
+#Data Quality Rules, for now dropping the rows, these can be quarantine if needed
 @dlt.expect_or_drop("valid_power_output", "power_output >= 0 AND power_output <= 10")
 @dlt.expect_or_drop("valid_wind_speed", "wind_speed >= 0 AND wind_speed <= 100")
 @dlt.expect_or_drop("valid_wind_direction", "wind_direction >= 0 AND wind_direction < 360")
 def get_silver_data():
     return (
        dlt.read("bronze_data")
-            # Remove rows with null values
+            # Remove rows with null values for the main columns
             .dropna(subset=["timestamp", "turbine_id", "power_output"])
             # Convert timestamp to proper format
             .withColumn("timestamp", F.to_timestamp("timestamp"))
-            # Add window column for 24-hour grouping
+            # Add loaded time for lineage
             .withColumn(
                 "Loadedtime",
                 F.current_timestamp()
