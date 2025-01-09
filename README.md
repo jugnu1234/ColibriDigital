@@ -27,7 +27,7 @@ Using Delta Live Tables provides reliable, declarative pipeline management with 
 
 Pipeline
 ---------------
-Pipeline is divided in three stages/layers Bronze, Silver and Gold.
+[Pipeline](scr/Process_Energy_Data.py) is divided in three stages/layers Bronze, Silver and Gold.
 
 Bronze layer represent the raw source data which is processed incrementally.
 
@@ -39,7 +39,7 @@ Gold layer represent daily summary statistics and anomaly data.
 
 Orchestration
 ---------------
-Databricks Job Workflow is used to Orchestrate DLT job on a given schedule, which provides lineage, notification, retry mechanism and scalability out of the box.
+Databricks [Job Workflow](scr/Orchestration_job.json) is used to Orchestrate DLT job on a given schedule, which provides lineage, notification, retry mechanism and scalability out of the box.
 
 ![Orchestration](images/Orchestration.PNG)
 
