@@ -1,0 +1,34 @@
+{
+  "job_id": 536185765505655,
+  "new_settings": {
+    "name": "Daily Renewable Energy Data Processing",
+    "email_notifications": {
+      "on_failure": [
+        "alters@mail.com"
+      ],
+      "no_alert_for_skipped_runs": true
+    },
+    "webhook_notifications": {},
+    "timeout_seconds": 0,
+    "schedule": {
+      "quartz_cron_expression": "56 0 10 * * ?",
+      "timezone_id": "Europe/London",
+      "pause_status": "UNPAUSED"
+    },
+    "max_concurrent_runs": 1,
+    "tasks": [
+      {
+        "task_key": "pipeline-task-920a4984-0fa6-4ab4-95e6-dfa660fd506f",
+        "run_if": "ALL_SUCCESS",
+        "pipeline_task": {
+          "pipeline_id": "920a4984-0fa6-4ab4-95e6-dfa660fd506f"
+        },
+        "timeout_seconds": 0,
+        "email_notifications": {}
+      }
+    ],
+    "run_as": {
+      "user_name": "junaid.ali@myorgs.org.uk"
+    }
+  }
+}

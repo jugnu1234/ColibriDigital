@@ -1,0 +1,35 @@
+{
+    "id": "920a4984-0fa6-4ab4-95e6-dfa660fd506f",
+    "pipeline_type": "WORKSPACE",
+    "clusters": [
+        {
+            "label": "default",
+            "spark_conf": {
+                "spark.hadoop.fs.azure.account.oauth.provider.type.<adlsgen2account>.dfs.core.windows.net": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+                "spark.hadoop.fs.azure.account.oauth2.client.secret.<adlsgen2account>.dfs.core.windows.net": "{{secrets/<Scope Name>/serviceprincipal-databricks-sp-dbw-dap-Password}}",
+                "spark.hadoop.fs.azure.account.oauth2.client.id.<adlsgen2account>.dfs.core.windows.net": "{{secrets/<Scope Name>/serviceprincipal-databricks-sp-dbw-dap-AppID}}",
+                "spark.hadoop.fs.azure.account.auth.type.<adlsgen2account>.dfs.core.windows.net": "OAuth",
+                "spark.hadoop.fs.azure.account.oauth2.client.endpoint.<adlsgen2account>.dfs.core.windows.net": "https://login.microsoftonline.com/<tenantid>/oauth2/token"
+            },
+            "node_type_id": "Standard_DS3_v2",
+            "driver_node_type_id": "Standard_DS3_v2",
+            "num_workers": 1
+        }
+    ],
+    "development": true,
+    "continuous": false,
+    "channel": "CURRENT",
+    "photon": false,
+    "libraries": [
+        {
+            "notebook": {
+                "path": "/Users/junaid.ali/dlt/Process_Energy_Data"
+            }
+        }
+    ],
+    "name": "Renewable Energy Data Processing",
+    "edition": "ADVANCED",
+    "storage": "dbfs:/pipelines/920a4984-0fa6-4ab4-95e6-dfa660fd506f",
+    "target": "energy",
+    "data_sampling": false
+}
