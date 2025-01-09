@@ -21,7 +21,7 @@ Your solution should be implemented in Python and Pyspark, using any frameworks 
 
 Solution Design Description
 ---------------
-This solution is data processing pipeline implemented using Delta Live Tables declarative ETL framework, medallion architecture design pattern is used for multiple stages to process wind turbine data effectively.
+This solution is a data processing pipeline implemented using Delta Live Tables declarative ETL framework, medallion architecture design pattern is used for multiple stages to process wind turbine data effectively.
 The modular design ensures each stage (ingestion, cleaning, aggregation, anomaly detection) is logically separated for clarity and maintainability.
 Using Delta Live Tables provides reliable, declarative pipeline management with automated tracking and monitoring.
 
