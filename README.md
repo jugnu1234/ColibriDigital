@@ -1,6 +1,6 @@
 # Colibri Coding Challenge
 
-Challenge details
+Challenge Details
 ---------------
 Consider the following scenario:
 
